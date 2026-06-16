@@ -1,0 +1,6 @@
+db design
+
+company - abc , def
+Vehicles - car . bike . truck
+users
+vehicle monitoring - temp speed location battery 
