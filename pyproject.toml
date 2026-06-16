@@ -1,7 +1,7 @@
 [project]
-name = "fleet-managment"
+name = "fleet-managament"
 version = "0.1.0"
-description = "Add your description here"
+description = "Fleet Managament and Vehicle Monitring" 
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = []
