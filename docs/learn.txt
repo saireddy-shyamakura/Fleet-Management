@@ -1,1 +1,5 @@
 code or concepts to need to learn
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+
+scripy make
+alembic ini

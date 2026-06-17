@@ -1,6 +1,22 @@
 db design
 
-company - abc , def
-Vehicles - car . bike . truck
-users
-vehicle monitoring - temp speed location battery 
+company table - pk(id) company name  created_at
+
+Vehicles - pk(id) compnay(pk) vehicle(type), vehicle_number , is active , created at
+
+vehilce pre settigs - id vehicle_id (FK) overspeed_limit geofence_lat geofence_lon eofence_radius max_temp
+
+users pk(id) company(pk) role(enum), email, hashed password , created at
+
+vehicle monitoring - data(id) vehicle(pk) company(id) battery speed temp date(utc) , lat, lon
+
+vehilce alerts  - data (id) vehicle(pd) company(id) alert(enum)  date(utc) message, 
+
+driving history - histry record(id) userid(pk from user) vehicle id(pk from vehicle) date(utc), start time(utc) end time(utc) start location end location distacne
+
+enums
+vehicletypes - car bike truck
+
+user-role - driver(user) admin(user and company level) superadmin(multiple companys)
+
+alret enum - overspeed , geo fence, overheating
