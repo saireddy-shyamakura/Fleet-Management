@@ -3,3 +3,24 @@ sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 scripy make
 alembic ini
+
+def get_db() -> Generator[Session, None, None]:
+    """Yield a database session and close it after use."""
+    db = SessionLocal()
+    try:
+        yield db
+    finally:
+        db.close()
+
+disable_error_code = ["misc"]
+
+exclude = ["^alembic/"]
+
+namespace_packages = true
+
+  - repo: https://github.com/pre-commit/mirrors-mypy
+    rev: v1.10.0
+    hooks:
+      - id: mypy
+        args: ["--config-file=pyproject.toml", "--explicit-package-bases"]
+        files: ^app/

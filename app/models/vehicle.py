@@ -1,15 +1,24 @@
-from sqlalchemy import Column , Integer, String , DateTime, ForeignKey, Boolean, Enum
-from app.db import Base
-from datetime import datetime
+"""Vehicle model definitions."""
+
 import enum
+from datetime import datetime
+
+from sqlalchemy import Boolean, Column, DateTime, Enum, ForeignKey, Integer, String
+
+from app.db import Base
+
 
 class VehicleType(enum.Enum):
+    """Supported vehicle categories."""
+
     CAR = "car"
     BIKE = "bike"
     TRUCK = "truck"
 
 
 class Vehicle(Base):
+    """Model for storing vehicle records."""
+
     __tablename__ = "vehicles"
 
     id = Column(Integer, primary_key=True, nullable=False, index=True)

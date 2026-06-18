@@ -1,5 +1,8 @@
+"""Simple environment path test script for local development."""
+
 import os
 
 base_path = os.path.dirname(os.path.dirname(__file__))
-env_path = os.path.join(base_path,".env")
+env_path = os.path.join(base_path, ".env")
+
 print(env_path)

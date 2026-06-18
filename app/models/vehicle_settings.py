@@ -1,7 +1,13 @@
-from sqlalchemy import Column, Integer, Float, ForeignKey
+"""Vehicle settings model definitions."""
+
+from sqlalchemy import Column, Float, ForeignKey, Integer
+
 from app.db import Base
 
+
 class VehicleSettings(Base):
+    """Model for storing configuration settings for a vehicle."""
+
     __tablename__ = "vehicle_settings"
 
     id = Column(Integer, primary_key=True)

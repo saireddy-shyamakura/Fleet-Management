@@ -1,15 +1,24 @@
-from sqlalchemy import Column, String , Integer, DateTime, ForeignKey, Enum
-from datetime import datetime
-from app.db import Base
+"""User model and role enum definitions."""
 
 import enum
+from datetime import datetime
+
+from sqlalchemy import Column, DateTime, Enum, ForeignKey, Integer, String
+
+from app.db import Base
+
 
 class UserRole(enum.Enum):
-    DRIVER = "driver"
+    """Supported user roles for access control."""
+
     ADMIN = "admin"
+    DRIVER = "driver"
     SUPERADMIN = "superadmin"
 
+
 class User(Base):
+    """Model for storing application users."""
+
     __tablename__ = "users"
 
     id = Column(Integer, primary_key=True, index=True)
