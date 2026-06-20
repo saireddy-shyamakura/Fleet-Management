@@ -2,6 +2,7 @@
 
 import enum
 from datetime import datetime
+from typing import Any
 
 from sqlalchemy import Column, DateTime, Enum, ForeignKey, Integer, String
 
@@ -24,7 +25,7 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     email = Column(String, unique=True, nullable=False)
     hashed_password = Column(String, nullable=False)
-    role = Column(Enum(UserRole), nullable=False)
+    role: Any = Column(Enum(UserRole), nullable=False)
 
     company_id = Column(Integer, ForeignKey("companies.id"), nullable=True)
 

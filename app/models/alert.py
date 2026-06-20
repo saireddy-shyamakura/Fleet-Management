@@ -2,6 +2,7 @@
 
 import enum
 from datetime import datetime
+from typing import Any
 
 from sqlalchemy import Column, DateTime, Enum, ForeignKey, Integer, String
 
@@ -24,6 +25,6 @@ class Alert(Base):
     id = Column(Integer, primary_key=True)
     vehicle_id = Column(Integer, ForeignKey("vehicles.id"))
     company_id = Column(Integer, ForeignKey("companies.id"))
-    alert_type = Column(Enum(AlertType))
+    alert_type: Any = Column(Enum(AlertType))
     message = Column(String)
     created_at = Column(DateTime, default=datetime.utcnow)
