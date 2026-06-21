@@ -14,7 +14,7 @@ from app.db import get_db
 from app.models import Company
 from app.schemas.company import CompanyCreate, CompanyResponse, CompanyUpdate
 
-router = APIRouter(prefix="/companies", tags=["compnaies"])
+router = APIRouter(prefix="/companies", tags=["companies"])
 
 
 @router.post("/", response_model=CompanyResponse)
@@ -22,7 +22,7 @@ def create(data: CompanyCreate, db: Session = Depends(get_db)) -> CompanyRespons
     return create_company(db, data)
 
 
-@router.get("/companyies-list", response_model=list[CompanyResponse])
+@router.get("/", response_model=list[CompanyResponse])
 def read_all(db: Session = Depends(get_db)) -> list[Company]:
     return get_companies(db)
 
@@ -53,5 +53,5 @@ def update_company_by_id(
 def delete_company(company_id: int, db: Session = Depends(get_db)) -> dict[str, str]:
     company = crud_delete_company(db, company_id)
     if not company:
-        raise HTTPException(status_code=404, detail="Compnay not found")
-    return {"message": "Deleted sucsessfully"}
+        raise HTTPException(status_code=404, detail="Company not found")
+    return {"message": "Deleted successfully"}

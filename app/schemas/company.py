@@ -5,7 +5,6 @@ from pydantic import BaseModel
 
 class CompanyBase(BaseModel):
     name: str
-    company_code: str
 
 
 class CompanyCreate(CompanyBase):
@@ -14,7 +13,6 @@ class CompanyCreate(CompanyBase):
 
 class CompanyUpdate(BaseModel):
     name: str | None = None
-    company_name: str | None = None
 
 
 class CompanyResponse(CompanyBase):
